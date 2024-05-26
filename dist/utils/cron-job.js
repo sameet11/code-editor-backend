@@ -38,5 +38,5 @@ exports.updateActiveContainer = updateActiveContainer;
 const checkDifferenceInMinutes = (currentime, timestamp) => {
     const timeDifference = currentime.getTime() - timestamp.getTime();
     const differenceInMinutes = Math.floor(timeDifference / (1000 * 60));
-    return differenceInMinutes >= 1;
+    return differenceInMinutes >= 20;
 };

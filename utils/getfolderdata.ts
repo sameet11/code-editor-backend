@@ -6,7 +6,7 @@ interface Folder {
     content?: string;
 }
 const Getfolderdata = (pathname: string) => {
-    const folderPath = `D:/${pathname}`
+    const folderPath = `${process.env.FOLDER_PATH}${pathname}`
     const files = fs.readdirSync(folderPath)
 
     const folderContents: Folder[] = [];

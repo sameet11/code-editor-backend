@@ -36,7 +36,7 @@ const Makefolder = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     if (typeof pathname !== "string") {
         return res.json({ error: "invalid Input" }).status(404);
     }
-    const path = `D:/${pathname}`;
+    const path = `${process.env.FOLDER_PATH}${pathname}`;
     const response = (0, createfolder_1.default)("", path);
     if (response.error || !response.data) {
         return res.json({ error: response.error }).status(404);
@@ -49,7 +49,7 @@ const MakeFile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (typeof pathname !== "string") {
         return res.json({ error: "invalid Input" }).status(404);
     }
-    const path = `D:/${pathname}`;
+    const path = `${process.env.FOLDER_PATH}${pathname}`;
     const result = (0, makefile_1.default)(path, "");
     if (result.error || !result.data) {
         return res.json({ error: result.error }).status(404);
@@ -63,7 +63,7 @@ const UpdateFile = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     if (typeof pathname !== "string") {
         return res.json({ error: "invalid Input" }).status(404);
     }
-    const path = `D:/${pathname}`;
+    const path = `${process.env.FOLDER_PATH}${pathname}`;
     const result = (0, editfile_1.default)(path, body.content);
     if (result.error || !result.data) {
         return res.json({ error: result.error }).status(404);

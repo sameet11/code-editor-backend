@@ -25,7 +25,7 @@ export const Makefolder = async (req: Request, res: Response) => {
     if (typeof pathname !== "string") {
         return res.json({ error: "invalid Input" }).status(404);
     }
-    const path = `D:/${pathname}`;
+    const path = `${process.env.FOLDER_PATH}${pathname}`;
     const response = createFolder("", path);
     if (response.error || !response.data) {
         return res.json({ error: response.error }).status(404);
@@ -37,7 +37,7 @@ export const MakeFile = async (req: Request, res: Response) => {
     if (typeof pathname !== "string") {
         return res.json({ error: "invalid Input" }).status(404);
     }
-    const path = `D:/${pathname}`;
+    const path = `${process.env.FOLDER_PATH}${pathname}`;
     const result = Makefile(path, "");
     if (result.error || !result.data) {
         return res.json({ error: result.error }).status(404);
@@ -50,7 +50,7 @@ export const UpdateFile = async (req: Request, res: Response) => {
     if (typeof pathname !== "string") {
         return res.json({ error: "invalid Input" }).status(404);
     }
-    const path = `D:/${pathname}`;
+    const path = `${process.env.FOLDER_PATH}${pathname}`;
     const result = EditFile(path, body.content);
     if (result.error || !result.data) {
         return res.json({ error: result.error }).status(404);
