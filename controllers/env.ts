@@ -24,7 +24,7 @@ export const createEnv = async (req: any, res: Response) => {
             objectkey,
         }
     })
-    const rootpath = `D:/${updateenv.objectkey}`
+    const rootpath = `${process.env.FOLDER_PATH}${updateenv.objectkey}`
 
     const result = createFolder("", rootpath);
 
@@ -70,7 +70,7 @@ export const getConatainer=async(req:Request,res:Response)=>{
     if(typeof foldername!=="string"){
         return res.json({error:"invalid input"}).status(404);
     }
-    const containerAndTimestamp=activeContainer.get(`D:/${foldername}`);
+    const containerAndTimestamp=activeContainer.get(`${process.env.FOLDER_PATH}${foldername}`);
     if(containerAndTimestamp===undefined){
         return res.json({error:"no conatainer found"}).status(404);
     }

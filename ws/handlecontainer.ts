@@ -4,9 +4,8 @@ import os from "os";
 
 export const handleContainer = (socket: Socket) => {
   const containerId = socket.handshake.query.containerId as string;
-  const shell = os.platform() === 'win32' ? 'powershell.exe' : 'bash';
 
-  const ptyProcess = pty.spawn(shell, ['docker', 'exec', '-it', containerId, '/bin/sh'], {
+  const ptyProcess = pty.spawn('docker', ['exec', '-it', containerId, '/bin/sh'], {
     name: 'xterm-color',
     cwd: process.env.HOME,
   }) 
