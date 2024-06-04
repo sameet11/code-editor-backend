@@ -23,7 +23,7 @@ const Getfolderdata = (pathname: string) => {
 
             folderContents.push({
                 name: fileName,
-                content: data
+                content: data || " "
             });
 
         }
