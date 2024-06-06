@@ -1,6 +1,5 @@
 import { Socket } from "socket.io";
 import * as pty from "node-pty";
-import os from "os";
 
 export const handleContainer = (socket: Socket) => {
   const containerId = socket.handshake.query.containerId as string;
